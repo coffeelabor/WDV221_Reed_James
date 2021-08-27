@@ -1,7 +1,7 @@
 # WDV221_Reed_James
 
 ## Description
-   * Code Repo for Intro to JavaScript
+    * Code Repo for Intro to JavaScript
 ## Instructor
     * Matt Hall
 ## Deploy
