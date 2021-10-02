@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    const stringOne = "This"
+    const stringTwo = "HowBoutThisOne"
+    const stringThree = "This one has spaces will it still work"
+    
+    const maskAllButLastFour = (inputString) => {
+        var lastFour
+        var result
+        var maskedString = "#"
+        if(inputString.length < 5){
+            return "####"
+        }
+        lastFour = inputString.slice(-4)
+        for(let i = 0; i < (inputString.length-5); i++){
+            maskedString = maskedString + "#"
+        }
+        result = maskedString + lastFour
+        console.log("Input length: ", inputString.length)
+        console.log("result length: ", result.length)
+        return result
+    }
+
+    const regexWay = (inputString) => {
+        if (inputString.length < 5) {
+            return "####"
+        }
+        // const lastFour = inputString.slice(-4)
+        const notLastFour = inputString.replace(/.(?=.{4,}$)/g, '#')
+        return notLastFour 
+    }
+    console.log("1" ,maskAllButLastFour(stringOne))
+    console.log("2", maskAllButLastFour(stringTwo))
+    console.log("3", maskAllButLastFour(stringThree))
+
+    console.log("4", regexWay(stringOne))
+    console.log("5", regexWay(stringTwo))
+    console.log("6", regexWay(stringThree))
+    // console.log("4", anotherWay(stringOne))
+    // console.log("5", anotherWay(stringTwo))
+    // console.log("6", anotherWay(stringThree))
+
+    // console.log("7", aDifferentWay(stringTwo))
+    // alert("The last four of a few stings are: " + maskAllButLastFour(stringOne) + " " + maskAllButLastFour(stringTwo) + " " + maskAllButLastFour(stringThree))
+    
+
+</script>
+</body>
+</html>
