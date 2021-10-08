@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit_5_Assignment</title>
+</head>
+<body>
+    <nav>
+        <h3><a href="../index.html">Home</a></h3>
+    </nav>
+    <div>
+        <script>
+            function onClickDemo(inputVal){
+                document.getElementById('problem1').innerHTML = `Changed by ${inputVal}`;
+            }
+        </script>
+        <h2>OnClick</h2>
+        <h3>HTML</h3>
+        <button onclick="document.getElementById('problem1').innerHTML = 'Changed by HTML'">Click Me</button>
+        <h3>Javascript</h3>
+        <button onclick="onClickDemo('JavaScript')">Click Me</button>
+        <p id='problem1'>Text for OnClick Demo</p>
+        
+        <h2>onmouseover && onmouseout</h2>
+        <h3>HTML</h3>
+        <button 
+        onmouseover="document.getElementById('problem2').innerHTML = 'Changed by HTML and mouseOver'"
+        onmouseout="document.getElementById('problem2').innerHTML = 'Changed by HTML and mouseOut'"
+        >Hover Me</button>
+        <h3>Javascript</h3>
+        <p id='problem2' style="border: 1px solid blue; background-color: skyblue;">Text for OnMouseOver Demo</p>
+        
+        <script>
+            document.getElementById("problem2").addEventListener("mouseover", onMouseOverDemo);
+            document.getElementById("problem2").addEventListener("mouseout", onMouseOutDemo);
+            function onMouseOverDemo(){
+                document.getElementById('problem2').innerHTML = `Changed by mouseOver and Javascript`;
+                document.getElementById('problem2').style.color = "white";
+                document.getElementById('problem2').style.background = "black";
+            }
+            function onMouseOutDemo() {
+                document.getElementById('problem2').innerHTML = `Changed back by mouseOut and Javascript`;
+                document.getElementById('problem2').style.color = "black";
+                document.getElementById('problem2').style.background = "white";
+            }
+        </script>
+        <!-- <button onclick="eventHandlerDemo('JavaScript')">Click Me</button> -->
+        
+        <h2>onchange</h2>
+        <h3>HTML</h3>
+        <p>Enter text for OnChange HTML Demo<input id='problem3.1' type="text" onchange=onChangeDemoHTML()></p>
+        <script>
+            function onChangeDemoHTML(){
+                var docElement = document.getElementById('problem3.1');
+                docElement.value = docElement.value.toUpperCase();
+            }
+            // Source: https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_onchange_html
+            </script>
+        <h3>Javascript</h3>
+        <p>Enter text for OnChange JS Demo<input id='problem3.2' type="text"></p>
+        <script>
+            document.getElementById("problem3.2").onchange = function(){onChangeDemoJS()};
+
+            function onChangeDemoJS() {
+                var docElement = document.getElementById('problem3.2');
+                docElement.value =  docElement.value.toUpperCase();
+            }
+            // Source: https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_onchange_html
+        </script>
+    </div>
+
+</body>
+</html>
