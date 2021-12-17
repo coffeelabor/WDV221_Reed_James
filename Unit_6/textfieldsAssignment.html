@@ -1,28 +1,9 @@
 <!Doctype html>
 <html>
 <head>
-<!-- <meta charset="UTF-8"> -->
-<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 <title>WDV221 Intro Javascript - Operators and Textfields Assignment</title>
-
-<!-- <style>
-
-body {background-color:#C99;
-}
-
-.highlightTitle	{
-	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-style:italic;
-	font-size:14px;
-	text-decoration:underline;
-	color:#096;
-}
-
-
-</style> -->
 
 
 <script>
@@ -33,11 +14,8 @@ body {background-color:#C99;
     return resultValueNum;
   }
   function displayValue(toDisplayDisplay, toGetValue) {
-    //document.getElementById(`${toDisplayDisplay}`).value = valueHelper(`${toGetValue}`)
     var displayResult = document.getElementById(`${toDisplayDisplay}`);
-    // displayResult.value = valueHelper(`${toGetValue}`)
     displayResult.value = valueHelper(toGetValue);
-    // console.log(displayResult.value)
     return
   }
   function displayMultiply(){
@@ -97,7 +75,6 @@ body {background-color:#C99;
     
     <p>1.
       <input type="button" value="Display value1" onclick="displayValue('Result_Value1', 'value1')"/>
-      <!-- <input type="button" value="Display value1" onclick="displayValue()"/> -->
       Display the value you entered for value1:
     <input type="text" id="Result_Value1" value=""/>
     </p>
