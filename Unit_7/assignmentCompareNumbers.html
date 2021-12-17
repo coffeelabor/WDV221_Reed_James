@@ -5,8 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WDV221 Intro Javascript</title>
+    <script>
+        //compare function
+        function compareNumbers(){
+            var result = "?";
+            var val1 = parseFloat(document.getElementById("value1").value);
+            var val2 = parseFloat(document.getElementById("value2").value);
+            //check if val1 and val2 are not null
+            if(val1 && val2){
+                // check if val1 is larger
+                if(val1 > val2){
+                    result = `Value 1 (${val1}) is larger`
+                }
+                else if(val2 > val1){
+                    result = `Value 2 (${val2}) is larger`
+                }
+                // if neither is larger than they are equal
+                else{
+                    result = "equal"
+                }
+            } 
+            // both fields must be filled out if one is null
+            else{
+                result = "Please fill out both fields"
+            }
+
+            document.getElementById("resultSpan").innerHTML = `<span>Result: ${result}</span>`;
+        }
+        //reset function
+        function resetForm(){
+            document.getElementById("resultSpan").innerHTML = "<span>Result: </span>";
+            document.getElementById("form1").reset();
+        }
+    </script>
 </head>
 <body>
+    <nav>
+        <h3><a href="../index.html">Home</a></h3>
+    </nav>
     <h2>WDV221 Intro Javascript</h2>
     <h3>Comparisons and IF Statements - Compare Numbers Assignment </h3>
     <hr />
@@ -23,12 +59,12 @@
         <p>Value 2:
             <input type="text" name="value2" id="value2" />
         </p>
-        <p>Result: </p>
+        <p id="resultSpan">Result:</p>
         <p>
-            <input type="submit" value="Compare Numbers" />
+            <input type="button" value="Compare Numbers" onclick="compareNumbers()"/>
         </p>
         <p>
-            <input type="reset" name="Reset" id="button" value="Reset" />
+            <input type="button" value="Reset" onclick="resetForm()"/>
         </p>
     </form>
 

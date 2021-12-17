@@ -5,8 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WDV221 Intro Javascript</title>
+    <script src="compareNames.js"></script>    
 </head>
-<body>    
+<body>
+    <nav>
+        <h3><a href="../index.html">Home</a></h3>
+    </nav>
     <h2>WDV221 Intro Javascript</h2>
     <h3>Comparison and IF Statements - Compare Names Assignment </h3>
     <hr />
@@ -23,11 +27,12 @@
         <p>Name 2:
             <input type="text" name="value2" id="value2" />
         </p>
-        <p>Result: </p>
-        <p><input type="submit" value="Compare Names" />
+        <p id="resultSpan">Result: </p>
+        <p><input type="button" value="Compare Names" onclick="compareNames()" />
         </p>
         <p>
-            <input type="reset" name="Reset" id="button" value="Reset" />
+            <!-- <input type="reset" name="Reset" id="button" value="Reset" /> -->
+            <input type="button" value="Reset" onclick="resetForm()" />
         </p>
     </form>
 
