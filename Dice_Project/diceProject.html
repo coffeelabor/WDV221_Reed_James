@@ -22,31 +22,72 @@
         <h3><a href="../index.html">Home</a></h3>
     </nav>
     <script>
-        var diceArr = ["", "./imgs/1.PNG", "./imgs/2.PNG", "./imgs/3.PNG", "./imgs/4.PNG", "./imgs/5.PNG", "./imgs/6.PNG"]
-        var diceMax = 6
-        var diceMin = 1
+        var diceArr = ["", "./imgs/1.PNG", "./imgs/2.PNG", "./imgs/3.PNG", "./imgs/4.PNG", "./imgs/5.PNG", "./imgs/6.PNG"];
+        var diceMax = 6;
+        var diceMin = 1;
+        // var totalCashAmount = 1000;
+        var diceOneResult;
+        var diceTwoResult;
         
         function randomNumGenerator(){
-            return Math.floor(Math.random()*diceMax) + diceMin
+            return Math.floor(Math.random()*diceMax) + diceMin;
         }
 
         function rollDice(){
-            var value1 = randomNumGenerator()
-            var value2 = randomNumGenerator()
+            var value1 = randomNumGenerator();
+            var value2 = randomNumGenerator();
+            diceOneResult = value1;
+            diceTwoResult = value2;
+            var diceImg1 = document.getElementById("diceOne").src = diceArr[value1];
+            var diceImg2 = document.getElementById("diceTwo").src = diceArr[value2];
 
-            var diceImg1 = document.getElementById("diceOne").src = diceArr[value1]
-            var diceImg2 = document.getElementById("diceTwo").src = diceArr[value2]
-
-            document.getElementById("Result_Value").innerHTML = `Result: ${value1 + value2}`
+            document.getElementById("Result_Value").innerHTML = `Result: ${value1 + value2}`;
         }
+
     </script>
     <div>
         <div>
             <img id="diceOne" src="./imgs/1.PNG" alt="dice">
             <img id="diceTwo" src="./imgs/1.PNG" alt="dice">
+            <!-- <ul>Game Rules
+                <li>A winning guess wins the amount wagered</li>            
+            </ul> -->
+            <!-- <h2 id="TotalCashAmount">You bank roll is: $1000</h2> -->
+            <p>Please input a number between 2-12: <input id="userInput" type="text"></p>
+            
         </div>
         <input type="button" value="Click to Roll" onclick="rollDice()"/>
         <p type="text" id="Result_Value">Result: </p>
+        <p id="userFeedback" type="text"> </p>
     </div>
+    <script>
+        function validateUserInput(userIn) {
+            if (userIn < 2 || userIn > 12) {
+                alert("Please enter a number between 2-12");
+                return true;
+            }
+            return false;
+        }
+// Need to get the onchange stuff implemented.
+// need to parseInt for input
+        function checkHighLow(userInput) {
+            var userInputInt = parseInt(userInput)
+            var diceTotal = diceOneResult + diceTwoResult;
+            var notValid = true
+            while (notValid) {
+                notValid = validateUserInput(userInputInt)
+            }
+            if(diceOneResult === diceTwoResult === 1 || diceOneResult === diceTwoResult === 12 || diceOneResult + diceTwoResult === diceTotal){
+                document.getElementById("userFeedback").innerHTML = "You Win"   
+            }
+            else if(userInput >= diceTotal){
+                document.getElementById("userFeedback").innerHTML = "Your guess was higher than the dice roll"
+            }
+            else if(userInput <= diceTotal){
+                document.getElementById("userFeedback").innerHTML = "Your guess was lower than the dice roll"
+            }
+
+        }
+    </script>
 </body>
 </html>

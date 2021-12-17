@@ -1,12 +1,14 @@
-<!doctype html>
+<!Doctype html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- <meta charset="UTF-8"> -->
+<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 <title>WDV221 Intro Javascript - Operators and Textfields Assignment</title>
 
-<style>
+<!-- <style>
 
 body {background-color:#C99;
 }
@@ -20,32 +22,46 @@ body {background-color:#C99;
 }
 
 
-</style>
+</style> -->
 
 
 <script>
 	var count = 0;
   function valueHelper(idInput) {
-    var resultValue = document.getElementById(`${idInput}`).value
-    resultValue = parseInt(resultValue)
-    debugger
-    return resultValue
+    var resultValue = document.getElementById(`${idInput}`).value;
+    var resultValueNum = parseInt(resultValue);
+    return resultValueNum;
   }
   function displayValue(toDisplayDisplay, toGetValue) {
     //document.getElementById(`${toDisplayDisplay}`).value = valueHelper(`${toGetValue}`)
-    debugger
-    var displayResult = document.getElementById(`${toDisplayDisplay}`)
-    debugger
-    displayResult.value = valueHelper(`${toGetValue}`)
-    console.log(displayResult.value)
-    debugger
+    var displayResult = document.getElementById(`${toDisplayDisplay}`);
+    // displayResult.value = valueHelper(`${toGetValue}`)
+    displayResult.value = valueHelper(toGetValue);
+    // console.log(displayResult.value)
     return
   }
-  function displayMultiply(){}
+  function displayMultiply(){
+    var val1 = document.getElementById("value1").value;
+    var val2 = document.getElementById("value2").value;
 
-  function displayAdd(){}
+    var valSum = parseFloat(val1) * parseFloat(val2)
+    
+    document.getElementById("Result_Multiply").value = valSum
+  }
+  
+  function displayAdd(){
+    var val1 = document.getElementById("value1").value;
+    var val2 = document.getElementById("value2").value;
 
-  function displayCount(){}
+    var valSum = parseFloat(val1) + parseFloat(val2)
+
+    document.getElementById("Result_Add").value = valSum
+  }
+
+  function displayCount(){
+    count ++
+    document.getElementById("Result_Inc_Count").value = count
+  }
   
 </script>
 
@@ -67,17 +83,21 @@ body {background-color:#C99;
   
   <h3>Instructions</h3>
   <p>Use the form fields for the input values. For each of the following exercises create a function what will be activated by the button.  </p>
-  <form name="form1" method="post" action="">
-    <p>Enter a number for value1:
-      <input type="text" id="value1"/>
-    </p>
-    
-    <p>Enter a number for value 2:
-      <input type="text" id="value2"/>
+  <form id="form1" name="form1" method="post" action="">
+    <p>
+      <label for="value1">Enter a number for value1:
+        <input type="text" name="value1" id="value1"/>
+      </label>
+    </p
+    <p>
+      <label for="value2">Enter a number for value2:
+        <input type="text" name="value2" id="value2"/>
+      </label>
     </p>
     
     <p>1.
       <input type="button" value="Display value1" onclick="displayValue('Result_Value1', 'value1')"/>
+      <!-- <input type="button" value="Display value1" onclick="displayValue()"/> -->
       Display the value you entered for value1:
     <input type="text" id="Result_Value1" value=""/>
     </p>
@@ -89,25 +109,25 @@ body {background-color:#C99;
     </p>
     
     <p>3.
-      <input type="submit" value="Multiply" onclick="displayMultiply()"/>
+      <input type="button" value="Multiply" onclick="displayMultiply()"/>
       Display the value of value1 * value2:
-    <input type="text" id="Result_Multiply"/>
+    <input type="text" name="Result_Multiply" id="Result_Multiply"/>
     </p>
     
     <p>4.
-      <input type="submit" value="Add" onclick="displayAdd()"/>
+      <input type="button" value="Add" onclick="displayAdd()"/>
       Display the results of value1 + value2 in the following textfield.
     <input type="text" id="Result_Add"/>
     </p>
     
     <p>5.
-      <input type="submit" value="Increment count" onclick="displayCount()" />
+      <input type="button" value="Increment count" onclick="displayCount()" />
       Use the increment operator to add 1 to count and display the new value of count.
     <input type="text" id="Result_Inc_Count"/>
     </p>
     
     <p>
-      <input type="reset" name="Reset" id="button" value="Reset">
+      <input type="reset" name="button2" id="button2" value="Reset">
     </p>
 
     <script>
