@@ -11,7 +11,7 @@
 	
 	//create parallel array 
 	var teamScores = [3,7,4];					
-	
+
 	function teamsTestLoop(){
 		for(let i = 0; i<teamNames.length; i++){
 			console.log("Team: ", teamNames[i])
@@ -102,11 +102,13 @@
 		}
 		document.getElementById("teamRank0").style.background = "yellow";
 		document.getElementById("teamScoreRank0").style.background = "yellow";
-		document.getElementById("outputRankResponse").innerHTML = `${displayArr[0][0]} ${displayArr[0][1]}`;
+		document.getElementById("outputRankResponse").innerHTML = `The ${displayArr[0][0]} with ${displayArr[0][1]} wins`;
 	}
 	displayTeamRank();
 	
 	function resetBoard() {
+		teamNames = ["Bears", "Browns", "Reds"];
+		teamScores = [3, 7, 4];
 		document.getElementById("outputResponse").innerHTML = "";
 		document.getElementById("outputRankResponse").innerHTML = "";
 		document.getElementById("rankingArea").innerHTML = "";
