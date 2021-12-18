@@ -63,9 +63,10 @@
 			{
 				console.log("Else!!!")
 				if(inputScoreValue.value != ""){
-					teamScores[lookupResponse] = teamScores[lookupResponse] + inTeamScore;
+					// teamScores[lookupResponse] = teamScores[lookupResponse] + inTeamScore;
+					teamScores[lookupResponse] += inTeamScore;
 				}
-				document.getElementById("outputResponse").innerHTML = inTeamName + " " + teamScores[lookupResponse];
+				document.getElementById("outputResponse").innerHTML = inTeamName + " with " + teamScores[lookupResponse] + " points";
 				inputTeamValue.value = "";
 				inputScoreValue.value = ""; 
 			}
@@ -102,7 +103,7 @@
 		}
 		document.getElementById("teamRank0").style.background = "yellow";
 		document.getElementById("teamScoreRank0").style.background = "yellow";
-		document.getElementById("outputRankResponse").innerHTML = `The ${displayArr[0][0]} with ${displayArr[0][1]} wins`;
+		document.getElementById("outputRankResponse").innerHTML = `The ${displayArr[0][0]} with ${displayArr[0][1]} points`;
 	}
 	displayTeamRank();
 	
