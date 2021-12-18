@@ -3,20 +3,6 @@
 <head>
 <meta charset="utf-8">
 <title>WDV221 Intro Javascript</title>
-
-<script>
-
-	var products = ["Garden Trowel","Yard Spade","Planting Spade"];
-	var productNumber = ["gt200","yard-1","plant-4"];
-	
-	var selectionFactors = ["Price","Quality","Reviews","Pictures"];
-	
-	var references = ["Field and Stream","Home and Garden","Plant Life"];
-
-</script>
-
-
-
 </head>
 
 <body>
@@ -33,8 +19,14 @@
       <br>
       <br>
       2. Please choose the primary factor in why you purchased our product:<br>
+	  <div id=radioSelect>
+
+	  </div>
       <br>
   	3. How did your hear about us? Please select all that apply:<br>
+	  <div id="checkSelect">
+
+	  </div>
   	<input type="submit" name="button" id="button" value="Submit">
   	<input type="reset" name="button2" id="button2" value="Reset">
   	<br>
@@ -47,5 +39,32 @@
 <p>2. Use the selectionFactors array to dynamically create a set of radio buttons. </p>
 <p>3. Use the references array to dynamically create a set of check boxes. </p>
 <p>&nbsp;</p>
+<script>
+	document.createElement("option")
+	document.createElement("input")
+
+	var products = ["Garden Trowel", "Yard Spade", "Planting Spade"];
+	var productNumber = ["gt200", "yard-1", "plant-4"];
+
+	var selectionFactors = ["Price", "Quality", "Reviews", "Pictures"];
+
+	var references = ["Field and Stream", "Home and Garden", "Plant Life"];
+	var selProduct = document.getElementById("selectProduct")
+	var selFactor = document.getElementById("radioSelect")
+	var selRefernce = document.getElementById("checkSelect")
+
+	for (let i = 0; i < products.length; i++) {
+		if(i==0){
+			selProduct.innerHTML += `<option id=select${i}>Select an Option</option>`;
+		}
+		selProduct.innerHTML += `<option id=select${i}>${products[i]}, ${productNumber[i]}</option>`;
+	}
+	for (let i = 0; i < products.length; i++) {
+		selFactor.innerHTML += `<input type="radio" id=${i}>${selectionFactors[i]}</input>`;
+	}
+	for (let i = 0; i < products.length; i++) {
+		selRefernce.innerHTML += `<input type="checkbox" id=${i}>${selectionFactors[i]}</input>`;
+	}
+</script>
 </body>
 </html>
