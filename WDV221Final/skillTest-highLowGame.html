@@ -4,26 +4,53 @@
 <meta charset="utf-8">
 <title>WDV221 Intro Javascript</title>
 
-<script>
+<script >
+	var count = 0;
+	var numberToGuess = Math.floor(Math.random()*10)+1;
 	
 	function highLowGame()
 	{
+		console.log("numberToGuess", numberToGuess)
+		var hLResult = document.getElementById("highLowResult");
+		var guessButton = document.getElementById("makeGuess");
 		var inValue = parseInt( document.getElementById("inputGuess").value );	//get value from the form
-		
-		if (inValue == numberToGuess)
-		{
-			document.getElementById("highLowResult").innerHTML = "Congratulations!  That is the number.";	
+		if(inValue && (inValue > 0 && inValue < 11)){
+			count++;
+			if (inValue == numberToGuess)
+			{
+				hLResult.innerHTML = "Congratulations!  That is the number.";
+				hLResult.style.background = "lightBlue";
+				guessButton.style.display = "none";	
+			}
+			else
+			{
+				if(count>4){
+					hLResult.style.background = "lightCoral"	
+				}
+				hLResult.innerHTML = "Sorry, That was incorrect";
+				hLResult.innerHTML += "<br>";
+				hLResult.innerHTML += `Guess Count: ${count}`;
+			}
 		}
-		else
-		{
-			//Your code goes here!	
+		else{
+			if(!inValue){
+				hLResult.innerHTML = "Make a guess!";
+			}
+			else{
+				hLResult.innerHTML = "Make sure its between 1-10!";
+			}
 		}
+
 	}
 
 	function resetHighLowGame()
 	{
 		document.getElementById("highLowForm").reset();
 		document.getElementById("highLowResult").innerHTML = "";	
+		document.getElementById("highLowResult").style.background = "";
+		document.getElementById("makeGuess").style.display = ""
+		numberToGuess = Math.floor(Math.random() * 10) + 1;
+		count = 0;
 	}
 
 
@@ -50,7 +77,7 @@
        </p>
       <p>Result! <span id="highLowResult"></span></p>
       <p>
-        <input type="submit" name="makeGuess" id="makeGuess" value="Make a Guess">
+        <input type="button" name="makeGuess" id="makeGuess" value="Make a Guess">
         <input type="button" name="resetHighLowGame" id="resetHighLowGame" value="Reset">
       </p>
 	  <script>
