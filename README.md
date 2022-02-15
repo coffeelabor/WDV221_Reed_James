@@ -1,8 +1,8 @@
 # WDV221_Reed_James
 
 ## Description
-    * Code Repo for Intro to JavaScript
+    * Code Repo for Emerging Technologies Seminar
 ## Instructor
-    * Matt Hall
+    * Jeff Gullion
 ## Deploy
-    * deployed through netlify at: https://wdv221-reed-james.netlify.app/
+    * deployed through netlify at: https://wdv495-reed-james-homework-page.netlify.app/
